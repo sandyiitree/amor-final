@@ -21,7 +21,7 @@ const Location: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Prime <span className="text-[#c46a32]">Location</span>
+            Prime <span className="font-bold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Location</span>
           </h2>
           <div className="w-20 h-1 bg-[#c46a32] mx-auto mb-6"></div>
           <p className="text-gray-700 max-w-2xl mx-auto">
@@ -49,7 +49,7 @@ const Location: React.FC = () => {
             ></iframe>
             <div className="absolute top-4 left-4 bg-white p-3 rounded-lg shadow-md">
               <div className="flex items-center">
-                <MapPin className="text-[#c46a32] h-5 w-5 mr-2" />
+                <MapPin className="h-5 w-5 mr-2" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}} />
                 <span className="font-medium text-gray-800">AMOR </span>
               </div>
             </div>
@@ -66,7 +66,7 @@ const Location: React.FC = () => {
                   <div key={index} className="flex justify-between items-center border-b border-gray-100 pb-3">
                     <div className="flex items-center">
                       <div className="bg-yellow-100 p-2 rounded-full mr-4">
-                        <div className="bg-[#c46a32] h-2 w-2 rounded-full"></div>
+                        <div className="h-2 w-2 rounded-full" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
                       </div>
                       <span className="font-medium">{point.name}</span>
                     </div>

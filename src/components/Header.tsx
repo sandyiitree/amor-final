@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,13 +27,13 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="#" className="text-2xl font-bold">
-            <span className={`transition-colors duration-300 ${isScrolled ? 'text-[#c46a32]' : 'text-[#c46a32]'}`}>
-              AMOR
-            </span>
-            <span className={`text-[#c46a32] ml-1 transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-90'}`}>
-              
-            </span>
+          <a href="#" className="text-2xl font-bold flex items-center">
+            <img 
+              src={logo}
+              alt="Amor Villas Logo" 
+              className={`h-10 w-auto transition-all duration-300 ${isScrolled ? '' : ''}`} 
+              style={{ maxHeight: isScrolled ? '40px' : '56px', transition: 'max-height 0.3s' }}
+            />
           </a>
         </div>
         

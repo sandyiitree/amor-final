@@ -65,9 +65,9 @@ const Gallery: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Experience <span className="text-[#c46a32]">AMOR</span>
+            Experience <span className="font-bold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>AMOR</span>
           </h2>
-          <div className="w-20 h-1 bg-[#c46a32] mx-auto mb-6"></div>
+          <div className="w-20 h-1 mx-auto mb-6" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
           <p className="text-gray-700 max-w-2xl mx-auto">
             Take a visual journey through our meticulously designed spaces and discover the 
             perfect blend of luxury, comfort, and sophistication.

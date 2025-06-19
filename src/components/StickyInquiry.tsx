@@ -26,7 +26,13 @@ const StickyInquiry: React.FC = () => {
               <span className="text-gray-800 font-medium">Enquire or call us:</span>
               <a 
                 href={`tel:${phoneNumber}`}
-                className="text-[#c46a32] font-semibold hover:text-yellow-700 transition-colors duration-300 flex items-center"
+                className="font-semibold hover:text-yellow-700 transition-colors duration-300 flex items-center"
+                style={{
+                  background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  fontWeight: 'bold'
+                }}
               >
                 <Phone className="h-4 w-4 mr-2" />
                 {phoneNumber}
@@ -59,7 +65,8 @@ const StickyInquiry: React.FC = () => {
               />
               <button
                 type="submit"
-                className="bg-[#c46a32] text-white py-2 px-6 rounded-md hover:bg-green-700 transition-colors duration-300 whitespace-nowrap"
+                className="text-white py-2 px-6 rounded-md hover:bg-green-700 transition-colors duration-300 whitespace-nowrap"
+                style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}
               >
                 Submit
               </button>
@@ -69,20 +76,22 @@ const StickyInquiry: React.FC = () => {
       </div>
 
       {/* Mobile Version */}
-      <div className="fixed bottom-0 left-0 right-0 grid grid-cols-2 md:hidden">
-        <a
-          href={`tel:${phoneNumber}`}
-          className="bg-[#c46a32] text-white py-3 px-4 flex items-center justify-center gap-2 hover:bg-yellow-700 transition-colors duration-300"
-        >
-          <Phone className="h-5 w-5" />
-          Call Us
-        </a>
-        <a
-          href="#contact"
-          className="bg-gray-800 text-white py-3 px-4 flex items-center justify-center hover:bg-gray-900 transition-colors duration-300"
-        >
-          Enquire Now
-        </a>
+      <div className="fixed bottom-0 left-0 right-0 md:hidden" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
+        <div className="grid grid-cols-2">
+          <a
+            href={`tel:${phoneNumber}`}
+            className="text-white py-3 px-4 flex items-center justify-center gap-2 transition-colors duration-300 hover:bg-black hover:bg-opacity-10"
+          >
+            <Phone className="h-5 w-5" />
+            Call Us
+          </a>
+          <a
+            href="#contact"
+            className="text-white py-3 px-4 flex items-center justify-center transition-colors duration-300 hover:bg-black hover:bg-opacity-10"
+          >
+            Enquire Now
+          </a>
+        </div>
       </div>
     </>
   );
