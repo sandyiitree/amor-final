@@ -1,6 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { X } from 'lucide-react';
+import img1 from '../assets/images/11d39732-7587-46e1-8b81-9a29b2c17b02.jpg';
+import img2 from '../assets/images/5e4b2e95-1970-438c-a193-c3e9e28cb420.jpg';
+import img3 from '../assets/images/ab0948ca-e260-4a89-bec9-9e19650b97a0.jpg';
+import img4 from '../assets/images/b8a66eea-91ca-4180-b0c6-d0a86e5f42e8.jpg';
+import img5 from '../assets/images/0bf1a608-40e9-4f27-be93-e97c49517d82.jpg';
+import img6 from '../assets/images/3c231901-6023-48f8-9ffe-45a5c8f7e87b.jpg';
 
 const Gallery: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -9,34 +15,34 @@ const Gallery: React.FC = () => {
 
   const images = [
     {
-      src: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      alt: "Luxury apartment living room",
-      title: "Spacious Living Areas"
+      src: img1,
+      alt: "Gallery image 1",
+      title: "Rooftop Restaurant"
     },
     {
-      src: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      alt: "Modern kitchen with island",
-      title: "Gourmet Kitchens"
+      src: img2,
+      alt: "Gallery image 2",
+      title: "Sports Area"
     },
     {
-      src: "https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      alt: "Master bedroom with view",
-      title: "Luxurious Bedrooms"
+      src: img3,
+      alt: "Gallery image 3",
+      title: "Banquet Hall"
     },
     {
-      src: "https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      alt: "Building exterior",
-      title: "Iconic Architecture"
+      src: img4,
+      alt: "Gallery image 4",
+      title: "Gym"
     },
     {
-      src: "https://images.pexels.com/photos/189333/pexels-photo-189333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      alt: "Rooftop pool",
-      title: "Infinity Pool"
+      src: img5,
+      alt: "Gallery image 5",
+      title: "Outdoor Exercise Area"
     },
     {
-      src: "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      alt: "Luxury bathroom",
-      title: "Designer Bathrooms"
+      src: img6,
+      alt: "Gallery image 6",
+      title: "Kids Play Area"
     }
   ];
 
