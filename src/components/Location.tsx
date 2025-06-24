@@ -37,7 +37,7 @@ const Location: React.FC = () => {
             }`}
           >
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.493024734816!2d81.03236727451933!3d26.760653064683555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2a2c1916a4d%3A0x12f1ea059469cfea!2sAmor%20Villas!5e0!3m2!1sen!2sin!4v1716452762049!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.216537988955!2d81.0510621!3d26.8649756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be3e1853ced89%3A0x194c1c39c4c92953!2sAMOR%20BY%20CCS%20INFRATECH!5e0!3m2!1sen!2sin!4v1719221600145!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
