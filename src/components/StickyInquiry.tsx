@@ -14,7 +14,7 @@ const StickyInquiry: React.FC = () => {
     setFormData({ name: '', email: '', phone: '' });
   };
 
-  const phoneNumber = '+911234567890';
+  const phoneNumber = '+914071242692';
 
   return (
     <>
