@@ -47,12 +47,7 @@ const Location: React.FC = () => {
               title="Project location map"
               className="absolute inset-0"
             ></iframe>
-            <div className="absolute top-4 left-4 bg-white p-3 rounded-lg shadow-md">
-              <div className="flex items-center">
-                <MapPin className="h-5 w-5 mr-2" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}} />
-                <span className="font-medium text-gray-800">AMOR </span>
-              </div>
-            </div>
+ 
           </div>
 
           {/* Location info */}

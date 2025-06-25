@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useInView } from '../hooks/useInView';
 
 interface AmenityItem {
@@ -11,25 +11,44 @@ const Amenities: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { threshold: 0.1 });
   const amenitiesRef = useRef<HTMLDivElement>(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
 
   const scrollLeft = () => {
     if (amenitiesRef.current) {
-      amenitiesRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+      amenitiesRef.current.scrollBy({ left: -300, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (amenitiesRef.current) {
-      amenitiesRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+      amenitiesRef.current.scrollBy({ left: 300, behavior: 'smooth' });
     }
   };
+
+  const checkScrollPosition = () => {
+    if (amenitiesRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = amenitiesRef.current;
+      setShowLeftArrow(scrollLeft > 0);
+      setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    const scrollContainer = amenitiesRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', checkScrollPosition);
+      checkScrollPosition();
+      return () => scrollContainer.removeEventListener('scroll', checkScrollPosition);
+    }
+  }, []);
 
   const amenities: AmenityItem[] = [
     {
       title: "Clubhouse",
       description: "A central space to relax, socialize, and host gatherings.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10l9-7 9 7v10a2 2 0 01-2 2h-2m-4 0v-6H9v6m-4 0a2 2 0 01-2-2V10z" />
         </svg>
       )
@@ -38,7 +57,7 @@ const Amenities: React.FC = () => {
       title: "Swimming Pool",
       description: "Refresh and unwind in a crystal-clear pool.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15s1 0 2-.5 2-.5 3 0 2 .5 3 0 2-.5 3 0 2 .5 3 0 2-.5 3 0V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10z" />
         </svg>
       )
@@ -47,7 +66,7 @@ const Amenities: React.FC = () => {
       title: "Table Tennis",
       description: "Indoor fun with a fast-paced table tennis zone.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <circle cx="9" cy="9" r="4" stroke="currentColor" strokeWidth="1.5" />
           <path d="M14 14l6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
@@ -57,7 +76,7 @@ const Amenities: React.FC = () => {
       title: "Pool Table",
       description: "Chill and play a game of billiards with friends.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <circle cx="8" cy="8" r="1.5" />
           <circle cx="16" cy="8" r="1.5" />
           <circle cx="12" cy="14" r="1.5" />
@@ -68,7 +87,7 @@ const Amenities: React.FC = () => {
       title: "Gymnasium",
       description: "State-of-the-art fitness center to keep you healthy.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M6 3v3m12-3v3M3 9h18M6 21v-6m12 6v-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       )
@@ -77,7 +96,7 @@ const Amenities: React.FC = () => {
       title: "Banquet Hall",
       description: "Host grand celebrations in an elegant setting.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M3 20h18M4 4h16v12H4z" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       )
@@ -86,7 +105,7 @@ const Amenities: React.FC = () => {
       title: "Cricket Turf",
       description: "Enjoy a match on our well-maintained cricket turf.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M4 20l8-16m0 16L20 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       )
@@ -95,7 +114,7 @@ const Amenities: React.FC = () => {
       title: "Basketball Court",
       description: "Full-size court for casual games and serious play.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
           <path d="M12 3v18M3 12h18" stroke="currentColor" strokeWidth="1.5" />
         </svg>
@@ -105,7 +124,7 @@ const Amenities: React.FC = () => {
       title: "Jogging Track",
       description: "A dedicated path to keep your fitness journey on track.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M13 17h7m-7 0l-4-8m4 8l-5-2m5 2l1.5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       )
@@ -114,7 +133,7 @@ const Amenities: React.FC = () => {
       title: "Open Gym",
       description: "Work out in the fresh air with open-air equipment.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M6 6v12M18 6v12M9 9h6v6H9z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       )
@@ -123,7 +142,7 @@ const Amenities: React.FC = () => {
       title: "Yoga Area",
       description: "Peaceful space for yoga and mindfulness.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M12 6v3m0 0c-4 0-4 6 0 6m0-6c4 0 4 6 0 6M5 19h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       )
@@ -132,7 +151,7 @@ const Amenities: React.FC = () => {
       title: "Kids' Play Area",
       description: "Safe and fun zone designed especially for children.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <circle cx="12" cy="6" r="2" />
           <path d="M4 20l4-8m0 0l4 8m-4-8l-4 8M20 20l-4-8m0 0l-4 8m4-8l4 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
@@ -151,75 +170,124 @@ const Amenities: React.FC = () => {
     { label: "Electrical", value: "Concealed copper wiring with smart controls" }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (amenitiesRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = amenitiesRef.current;
-        if (scrollLeft + clientWidth >= scrollWidth) {
-          amenitiesRef.current.scrollLeft = 0; // Reset to start
-        } else {
-          amenitiesRef.current.scrollBy({ left: 1, behavior: 'smooth' }); // Scroll right
-        }
-      }
-    }, 30); // Adjust the interval for speed
-
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
-
   return (
-    <section id="amenities" ref={sectionRef} className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Lifestyle <span className="font-bold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Amenities</span>
+    <section id="amenities" ref={sectionRef} className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+      <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-amber-100/20 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-amber-100/20 to-transparent rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 shadow-lg" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Lifestyle <span className="font-extrabold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Amenities</span>
           </h2>
-          <div className="w-20 h-1 mx-auto mb-6" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Experience a life of luxury with our exclusive world-class amenities designed to elevate your everyday living.
+          <div className="w-24 h-1 mx-auto mb-8 rounded-full shadow-lg" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
+          <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+            Experience a life of luxury with our exclusive world-class amenities designed to elevate your everyday living and create unforgettable moments.
           </p>
         </div>
 
-        {/* Amenities Grid with Scroll Indicators */}
-        <div className="relative mb-16">
-          <div className={`absolute left-0 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer ${amenitiesRef.current && amenitiesRef.current.scrollLeft > 0 ? '' : 'hidden'}`} onClick={scrollLeft}>
-            <div className="bg-gray-200 p-2 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        {/* Amenities Grid with Enhanced Scroll Indicators */}
+        <div className="relative mb-20">
+          {/* Left Arrow */}
+          <div className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-20 transition-all duration-300 ${showLeftArrow ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
+            <button 
+              onClick={scrollLeft}
+              className="group bg-white/90 backdrop-blur-sm p-4 rounded-full shadow-xl border border-gray-200 hover:bg-white hover:shadow-2xl transition-all duration-300 hover:scale-110"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-amber-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-            </div>
+            </button>
           </div>
-          <div className={`absolute right-0 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer ${amenitiesRef.current && (amenitiesRef.current.scrollWidth > amenitiesRef.current.clientWidth) ? '' : 'hidden'}`} onClick={scrollRight}>
-            <div className="bg-gray-200 p-2 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+          {/* Right Arrow */}
+          <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-20 transition-all duration-300 ${showRightArrow ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}>
+            <button 
+              onClick={scrollRight}
+              className="group bg-white/90 backdrop-blur-sm p-4 rounded-full shadow-xl border border-gray-200 hover:bg-white hover:shadow-2xl transition-all duration-300 hover:scale-110"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-amber-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            </div>
+            </button>
           </div>
-          <div ref={amenitiesRef} className="flex overflow-x-auto space-x-4">
+
+          {/* Scrollable Container */}
+          <div 
+            ref={amenitiesRef} 
+            className="flex overflow-x-auto space-x-6 pb-8 scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {amenities.map((item, index) => (
               <div 
                 key={index} 
-                className={`bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-100 transform transition-all duration-500 hover:-translate-y-2 ${
+                className={`group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100/50 transform transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl hover:bg-white/95 ${
                   isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
-                style={{ minWidth: '200px', transitionDelay: `${index * 100}ms` }}
+                style={{ 
+                  minWidth: '280px', 
+                  transitionDelay: `${index * 100}ms`,
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)'
+                }}
               >
-                <div className="mb-4" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
-                  {item.icon}
+                {/* Icon Container */}
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-500" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', opacity: 0.2}}></div>
+                  <div className="relative p-4 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
+                    <div className="text-white">
+                      {item.icon}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+
+                {/* Content */}
+                <h3 className="text-xl font-bold mb-4 text-gray-800 group-hover:text-amber-600 transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  {item.description}
+                </p>
+
+                {/* Hover effect line */}
+                <div className="w-0 h-0.5 mt-4 group-hover:w-full transition-all duration-500" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
               </div>
+            ))}
+          </div>
+
+          {/* Scroll indicator dots */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {Array.from({ length: Math.ceil(amenities.length / 3) }, (_, i) => (
+              <div 
+                key={i} 
+                className="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-amber-400 cursor-pointer"
+              ></div>
             ))}
           </div>
         </div>
 
-        {/* Remove the specification section */}
-        {/* <div className="specification-section">
-          <h3>Specifications</h3>
-          <p>Details about specifications...</p>
-        </div> */}
+        {/* Call to action */}
+        <div className="text-center">
+          <div className="inline-flex items-center space-x-2 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
+            <span className="font-semibold">Explore All Amenities</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        </div>
       </div>
+
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };

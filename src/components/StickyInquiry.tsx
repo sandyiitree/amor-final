@@ -77,7 +77,7 @@ const StickyInquiry: React.FC = () => {
 
       {/* Mobile Version */}
       <div className="fixed bottom-0 left-0 right-0 md:hidden" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2" style={{height: '60px'}}>
           <a
             href={`tel:${phoneNumber}`}
             className="text-white py-3 px-4 flex items-center justify-center gap-2 transition-colors duration-300 hover:bg-black hover:bg-opacity-10"
