@@ -171,13 +171,8 @@ const Amenities: React.FC = () => {
   ];
 
   return (
-    <section id="amenities" ref={sectionRef} className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-      <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-amber-100/20 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-amber-100/20 to-transparent rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="amenities" ref={sectionRef} className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 shadow-lg" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -196,10 +191,10 @@ const Amenities: React.FC = () => {
         {/* Amenities Grid with Enhanced Scroll Indicators */}
         <div className="relative mb-20">
           {/* Left Arrow */}
-          <div className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-20 transition-all duration-300 ${showLeftArrow ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
+          <div className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 transition-all duration-300 ${showLeftArrow ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
             <button 
               onClick={scrollLeft}
-              className="group bg-white/90 backdrop-blur-sm p-4 rounded-full shadow-xl border border-gray-200 hover:bg-white hover:shadow-2xl transition-all duration-300 hover:scale-110"
+              className="group bg-white p-4 rounded-full shadow-xl border border-gray-200 hover:bg-gray-50 hover:shadow-2xl transition-all duration-300 hover:scale-110"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-amber-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -208,10 +203,10 @@ const Amenities: React.FC = () => {
           </div>
 
           {/* Right Arrow */}
-          <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-20 transition-all duration-300 ${showRightArrow ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}>
+          <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 transition-all duration-300 ${showRightArrow ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}>
             <button 
               onClick={scrollRight}
-              className="group bg-white/90 backdrop-blur-sm p-4 rounded-full shadow-xl border border-gray-200 hover:bg-white hover:shadow-2xl transition-all duration-300 hover:scale-110"
+              className="group bg-white p-4 rounded-full shadow-xl border border-gray-200 hover:bg-gray-50 hover:shadow-2xl transition-all duration-300 hover:scale-110"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-amber-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -228,13 +223,12 @@ const Amenities: React.FC = () => {
             {amenities.map((item, index) => (
               <div 
                 key={index} 
-                className={`group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100/50 transform transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl hover:bg-white/95 ${
+                className={`group bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transform transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl ${
                   isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ 
                   minWidth: '280px', 
-                  transitionDelay: `${index * 100}ms`,
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)'
+                  transitionDelay: `${index * 100}ms`
                 }}
               >
                 {/* Icon Container */}
