@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-text: #D26A3B;
+  --secondary-text: #FFFFFF;
+  --background: #1A1815;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--secondary-text);
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2A2825;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-text);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B85A2B;
+}

@@ -67,14 +67,14 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" ref={sectionRef} className="py-20 bg-gray-50">
+    <section id="gallery" ref={sectionRef} className="py-20 bg-[#1A1815]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Experience <span className="font-bold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>AMOR</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-6" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
-          <p className="text-gray-700 max-w-2xl mx-auto">
+          <p className="text-white/80 max-w-2xl mx-auto">
             Take a visual journey through our meticulously designed spaces and discover the 
             perfect blend of luxury, comfort, and sophistication.
           </p>
@@ -84,7 +84,7 @@ const Gallery: React.FC = () => {
           {images.map((image, index) => (
             <div 
               key={index} 
-              className={`overflow-hidden rounded-lg shadow-md cursor-pointer transition-all duration-500 ${
+              className={`overflow-hidden rounded-lg shadow-lg cursor-pointer transition-all duration-500 ${
                 isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -111,14 +111,14 @@ const Gallery: React.FC = () => {
       {activeImage !== null && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
           <button 
-            className="absolute top-4 right-4 text-white hover:text-yellow-400 transition-colors duration-300"
+            className="absolute top-4 right-4 text-white hover:text-[#D26A3B] transition-colors duration-300"
             onClick={closeModal}
           >
             <X className="w-8 h-8" />
           </button>
           
           <button 
-            className="absolute left-4 text-white hover:text-yellow-400 transition-colors duration-300 hidden md:block"
+            className="absolute left-4 text-white hover:text-[#D26A3B] transition-colors duration-300 hidden md:block"
             onClick={() => navigateImage('prev')}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -127,7 +127,7 @@ const Gallery: React.FC = () => {
           </button>
           
           <button 
-            className="absolute right-4 text-white hover:text-yellow-400 transition-colors duration-300 hidden md:block"
+            className="absolute right-4 text-white hover:text-[#D26A3B] transition-colors duration-300 hidden md:block"
             onClick={() => navigateImage('next')}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">

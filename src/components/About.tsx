@@ -22,24 +22,24 @@ const About: React.FC = () => {
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-20 bg-white"
+      className="py-20 bg-[#1A1815]"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className={`transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Welcome to <span className="font-bold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>AMOR Villas</span>
             </h2>
             <div className="w-20 h-1 mb-6" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
-            <p className="text-gray-700 mb-6 leading-relaxed">
+            <p className="text-white/80 mb-6 leading-relaxed">
             The finest homes await you at Amor Villas, a new luxury community where elegance meets affordability.
             </p>
-            <p className="text-gray-700 mb-8 leading-relaxed">
+            <p className="text-white/80 mb-8 leading-relaxed">
             Thoughtfully designed spaces and exceptional attention to detail make Amor Villas a place you'll admire and a home you'll truly love.
             </p>
             <a 
               href="#amenities" 
-              className="inline-block bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300"
+              className="inline-block bg-[#D26A3B] hover:bg-[#B85A2B] text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300"
             >
               Discover Features
             </a>
@@ -49,7 +49,7 @@ const About: React.FC = () => {
             {stats.map((stat, index) => (
               <div 
                 key={index} 
-                className={`bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 transform transition-all duration-500 hover:-translate-y-2 ${
+                className={`bg-[#2A2825] p-6 rounded-lg shadow-lg border border-[#3A3835] transform transition-all duration-500 hover:-translate-y-2 hover:bg-[#3A3835] ${
                   isInView ? 'opacity-100' : 'opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
@@ -72,7 +72,7 @@ const About: React.FC = () => {
                     {stat.suffix}
                   </span>
                 </div>
-                <p className="text-gray-600 font-medium">{stat.label}</p>
+                <p className="text-white/80 font-medium">{stat.label}</p>
               </div>
             ))}
           </div>

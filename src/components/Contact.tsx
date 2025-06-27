@@ -75,14 +75,14 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 bg-white">
+    <section id="contact" ref={sectionRef} className="py-20 bg-[#1A1815]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Contact <span className="font-bold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Us</span>
           </h2>
-          <div className="w-20 h-1 bg-[#c46a32] mx-auto mb-6"></div>
-          <p className="text-gray-700 max-w-2xl mx-auto">
+          <div className="w-20 h-1 mx-auto mb-6" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
+          <p className="text-white/80 max-w-2xl mx-auto">
             Interested in experiencing luxury living at AMOR? Get in touch with our sales team today.
           </p>
         </div>
@@ -92,16 +92,16 @@ const Contact: React.FC = () => {
           <div className={`transition-all duration-1000 ${
             isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
-            <div className="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-100 h-full">
-              <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
+            <div className="bg-[#2A2825] p-8 rounded-lg shadow-lg border border-[#3A3835] h-full">
+              <h3 className="text-2xl font-bold mb-8 text-white">Get in Touch</h3>
               
               <div className="space-y-6 mb-10">
                 {contactInfo.map((item, index) => (
                   <div key={index} className="flex items-center">
-                    <div className="bg-yellow-100 p-3 rounded-full mr-4" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
+                    <div className="p-3 rounded-full mr-4" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
                       {item.icon}
                     </div>
-                    <span className="text-gray-700">{item.text}</span>
+                    <span className="text-white/80">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -115,84 +115,84 @@ const Contact: React.FC = () => {
             isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
             {isSubmitted ? (
-              <div className="bg-green-50 p-8 rounded-lg shadow-sm border border-green-100 h-full flex flex-col items-center justify-center text-center">
-                <div className="bg-green-100 p-4 rounded-full text-green-600 mb-6">
+              <div className="bg-[#2A2825] p-8 rounded-lg shadow-lg border border-[#3A3835] h-full flex flex-col items-center justify-center text-center">
+                <div className="p-4 rounded-full text-white mb-6" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-800">Thank You!</h3>
-                <p className="text-gray-700 mb-6">
+                <h3 className="text-2xl font-bold mb-4 text-white">Thank You!</h3>
+                <p className="text-white/80 mb-6">
                   Your inquiry has been successfully submitted. Our team will contact you soon.
                 </p>
                 <button 
                   onClick={() => setIsSubmitted(false)} 
-                  className="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300"
+                  className="bg-[#D26A3B] hover:bg-[#B85A2B] text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300"
                 >
                   Send Another Inquiry
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-100">
-                <h3 className="text-2xl font-bold mb-6">Inquire Now</h3>
+              <form onSubmit={handleSubmit} className="bg-[#2A2825] p-8 rounded-lg shadow-lg border border-[#3A3835]">
+                <h3 className="text-2xl font-bold mb-6 text-white">Inquire Now</h3>
                 
                 <div className="grid grid-cols-1 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Full Name*</label>
+                    <label htmlFor="name" className="block text-white font-medium mb-2">Full Name*</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32] ${
-                        errors.name ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] bg-[#1A1815] text-white placeholder-white/60 ${
+                        errors.name ? 'border-red-500' : 'border-[#3A3835]'
                       }`}
                       placeholder="Your name"
                     />
-                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                    {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address*</label>
+                    <label htmlFor="email" className="block text-white font-medium mb-2">Email Address*</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32] ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] bg-[#1A1815] text-white placeholder-white/60 ${
+                        errors.email ? 'border-red-500' : 'border-[#3A3835]'
                       }`}
                       placeholder="Your email"
                     />
-                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                    {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
                   </div>
                   
                   <div>
-                    <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">Phone Number*</label>
+                    <label htmlFor="phone" className="block text-white font-medium mb-2">Phone Number*</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32] ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] bg-[#1A1815] text-white placeholder-white/60 ${
+                        errors.phone ? 'border-red-500' : 'border-[#3A3835]'
                       }`}
                       placeholder="Your phone number"
                     />
-                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                    {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
                   </div>
                   
                   <div>
-                    <label htmlFor="interested" className="block text-gray-700 font-medium mb-2">I'm interested in</label>
+                    <label htmlFor="interested" className="block text-white font-medium mb-2">I'm interested in</label>
                     <select
                       id="interested"
                       name="interested"
                       value={formData.interested}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32]"
+                      className="w-full px-4 py-3 border border-[#3A3835] rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] bg-[#1A1815] text-white"
                     >
                       <option value="sales">Sales Inquiry</option>
                       <option value="site-visit">Schedule a Site Visit</option>
@@ -202,25 +202,24 @@ const Contact: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message (Optional)</label>
+                    <label htmlFor="message" className="block text-white font-medium mb-2">Message</label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32]"
-                      placeholder="Your message"
-                    ></textarea>
+                      className="w-full px-4 py-3 border border-[#3A3835] rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] bg-[#1A1815] text-white placeholder-white/60"
+                      placeholder="Tell us more about your requirements..."
+                    />
                   </div>
                   
                   <button
                     type="submit"
-                    className="text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
-                    style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}
+                    className="w-full bg-[#D26A3B] hover:bg-[#B85A2B] text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
                   >
-                    Submit Inquiry
-                    <Send className="ml-2 h-4 w-4" />
+                    <Send className="h-5 w-5 mr-2" />
+                    Send Inquiry
                   </button>
                 </div>
               </form>

@@ -171,7 +171,7 @@ const Amenities: React.FC = () => {
   ];
 
   return (
-    <section id="amenities" ref={sectionRef} className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative">
+    <section id="amenities" ref={sectionRef} className="py-24 bg-[#1A1815] relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 shadow-lg" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
@@ -179,11 +179,11 @@ const Amenities: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
             </svg>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Lifestyle <span className="font-extrabold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Amenities</span>
           </h2>
           <div className="w-24 h-1 mx-auto mb-8 rounded-full shadow-lg" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
-          <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+          <p className="text-white/80 max-w-3xl mx-auto text-lg leading-relaxed">
             Experience a life of luxury with our exclusive world-class amenities designed to elevate your everyday living and create unforgettable moments.
           </p>
         </div>
@@ -194,9 +194,9 @@ const Amenities: React.FC = () => {
           <div className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 transition-all duration-300 ${showLeftArrow ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}>
             <button 
               onClick={scrollLeft}
-              className="group bg-white p-4 rounded-full shadow-xl border border-gray-200 hover:bg-gray-50 hover:shadow-2xl transition-all duration-300 hover:scale-110"
+              className="group bg-[#2A2825] p-4 rounded-full shadow-xl border border-[#3A3835] hover:bg-[#3A3835] hover:shadow-2xl transition-all duration-300 hover:scale-110"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-amber-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white group-hover:text-[#D26A3B] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -206,9 +206,9 @@ const Amenities: React.FC = () => {
           <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 transition-all duration-300 ${showRightArrow ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}>
             <button 
               onClick={scrollRight}
-              className="group bg-white p-4 rounded-full shadow-xl border border-gray-200 hover:bg-gray-50 hover:shadow-2xl transition-all duration-300 hover:scale-110"
+              className="group bg-[#2A2825] p-4 rounded-full shadow-xl border border-[#3A3835] hover:bg-[#3A3835] hover:shadow-2xl transition-all duration-300 hover:scale-110"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-amber-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white group-hover:text-[#D26A3B] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -223,7 +223,7 @@ const Amenities: React.FC = () => {
             {amenities.map((item, index) => (
               <div 
                 key={index} 
-                className={`group bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transform transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl ${
+                className={`group bg-[#2A2825] p-8 rounded-2xl shadow-lg border border-[#3A3835] transform transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl hover:bg-[#3A3835] ${
                   isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ 
@@ -242,10 +242,10 @@ const Amenities: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold mb-4 text-gray-800 group-hover:text-amber-600 transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-[#D26A3B] transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-white/80 leading-relaxed group-hover:text-white transition-colors duration-300">
                   {item.description}
                 </p>
 
@@ -260,7 +260,7 @@ const Amenities: React.FC = () => {
             {Array.from({ length: Math.ceil(amenities.length / 3) }, (_, i) => (
               <div 
                 key={i} 
-                className="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-amber-400 cursor-pointer"
+                className="w-2 h-2 rounded-full bg-[#3A3835] transition-all duration-300 hover:bg-[#D26A3B] cursor-pointer"
               ></div>
             ))}
           </div>

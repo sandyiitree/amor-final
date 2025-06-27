@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-[#1A1815]/95 backdrop-blur-sm shadow-lg py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -43,8 +43,8 @@ const Header: React.FC = () => {
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className={`font-medium transition-colors duration-300 hover:text-[#c46a32] ${
-                isScrolled ? 'text-gray-800' : 'text-white'
+              className={`font-medium transition-colors duration-300 hover:text-[#D26A3B] ${
+                isScrolled ? 'text-white' : 'text-white'
               }`}
             >
               {item}
@@ -59,15 +59,15 @@ const Header: React.FC = () => {
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
-            <X className={`h-6 w-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`} />
+            <X className={`h-6 w-6 text-white`} />
           ) : (
-            <Menu className={`h-6 w-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`} />
+            <Menu className={`h-6 w-6 text-white`} />
           )}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ${
+      <div className={`md:hidden absolute w-full bg-[#1A1815]/95 backdrop-blur-sm shadow-lg transition-all duration-300 ${
         isMenuOpen ? 'max-h-screen py-4' : 'max-h-0 overflow-hidden'
       }`}>
         <div className="container mx-auto px-4">
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`}
-                className="font-medium text-gray-800 hover:text-[#c46a32] py-2"
+                className="font-medium text-white hover:text-[#D26A3B] py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item}

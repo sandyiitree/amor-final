@@ -17,14 +17,14 @@ const Location: React.FC = () => {
   ];
 
   return (
-    <section id="location" ref={sectionRef} className="py-20 bg-gray-50">
+    <section id="location" ref={sectionRef} className="py-20 bg-[#1A1815]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Prime <span className="font-bold" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Location</span>
           </h2>
-          <div className="w-20 h-1 bg-[#c46a32] mx-auto mb-6"></div>
-          <p className="text-gray-700 max-w-2xl mx-auto">
+          <div className="w-20 h-1 mx-auto mb-6" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
+          <p className="text-white/80 max-w-2xl mx-auto">
             Strategically located in the heart of the city with convenient access to key destinations.
           </p>
         </div>
@@ -54,31 +54,31 @@ const Location: React.FC = () => {
           <div className={`transition-all duration-1000 ${
             isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 mb-8">
-              <h3 className="text-2xl font-bold mb-6">Connectivity</h3>
+            <div className="bg-[#2A2825] p-8 rounded-lg shadow-lg border border-[#3A3835] mb-8">
+              <h3 className="text-2xl font-bold mb-6 text-white">Connectivity</h3>
               <div className="space-y-4">
                 {locationPoints.map((point, index) => (
-                  <div key={index} className="flex justify-between items-center border-b border-gray-100 pb-3">
+                  <div key={index} className="flex justify-between items-center border-b border-[#3A3835] pb-3">
                     <div className="flex items-center">
-                      <div className="bg-yellow-100 p-2 rounded-full mr-4">
-                        <div className="h-2 w-2 rounded-full" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}></div>
+                      <div className="bg-[#3A3835] p-2 rounded-full mr-4">
+                        <div className="h-2 w-2 rounded-full bg-[#D26A3B]"></div>
                       </div>
-                      <span className="font-medium">{point.name}</span>
+                      <span className="font-medium text-white">{point.name}</span>
                     </div>
-                    <span className="text-gray-600">{point.distance}</span>
+                    <span className="text-white/80">{point.distance}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gray-800 text-white p-8 rounded-lg">
+            <div className="bg-[#2A2825] text-white p-8 rounded-lg border border-[#3A3835]">
               <h3 className="text-2xl font-bold mb-6">About the Area</h3>
-              <p className="mb-4 text-gray-300">
+              <p className="mb-4 text-white/80">
                 Located in one of the city's most prestigious neighborhoods, AMOR offers residents 
                 the perfect blend of connectivity and tranquility. The surrounding area features lush 
                 greenery, premium educational institutions, healthcare facilities, and entertainment options.
               </p>
-              <p className="text-gray-300">
+              <p className="text-white/80">
                 With seamless access to major highways and public transportation, navigating the city 
                 from AMOR is effortless, making it the ideal location for those who value both 
                 convenience and exclusivity.

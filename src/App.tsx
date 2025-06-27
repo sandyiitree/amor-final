@@ -12,7 +12,7 @@ import './styles/animations.css';
 
 function App() {
   return (
-    <div className="font-sans">
+    <div className="font-sans bg-[#1A1815] text-white min-h-screen">
       <Header />
       <Hero />
       <About />

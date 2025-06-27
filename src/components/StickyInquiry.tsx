@@ -19,20 +19,14 @@ const StickyInquiry: React.FC = () => {
   return (
     <>
       {/* Desktop Version */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-30 border-t border-gray-200 hidden md:block">
+      <div className="fixed bottom-0 left-0 right-0 bg-[#1A1815] shadow-lg z-30 border-t border-[#3A3835] hidden md:block">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center space-x-4">
-              <span className="text-gray-800 font-medium">Enquire or call us:</span>
+              <span className="text-white font-medium">Enquire or call us:</span>
               <a 
                 href={`tel:${phoneNumber}`}
-                className="font-semibold hover:text-yellow-700 transition-colors duration-300 flex items-center"
-                style={{
-                  background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontWeight: 'bold'
-                }}
+                className="font-semibold hover:text-[#D26A3B] transition-colors duration-300 flex items-center text-[#D26A3B]"
               >
                 <Phone className="h-4 w-4 mr-2" />
                 {phoneNumber}
@@ -44,7 +38,7 @@ const StickyInquiry: React.FC = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32]"
+                className="flex-1 px-4 py-2 border border-[#3A3835] bg-[#2A2825] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] placeholder-white/60"
                 required
               />
               <input
@@ -52,7 +46,7 @@ const StickyInquiry: React.FC = () => {
                 placeholder="Phone Number"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32]"
+                className="flex-1 px-4 py-2 border border-[#3A3835] bg-[#2A2825] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] placeholder-white/60"
                 required
               />
               <input
@@ -60,12 +54,12 @@ const StickyInquiry: React.FC = () => {
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#c46a32]"
+                className="flex-1 px-4 py-2 border border-[#3A3835] bg-[#2A2825] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] placeholder-white/60"
                 required
               />
               <button
                 type="submit"
-                className="text-white py-2 px-6 rounded-md hover:bg-green-700 transition-colors duration-300 whitespace-nowrap"
+                className="text-white py-2 px-6 rounded-md hover:bg-[#B85A2B] transition-colors duration-300 whitespace-nowrap"
                 style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}
               >
                 Submit

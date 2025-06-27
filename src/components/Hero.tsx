@@ -24,20 +24,14 @@ const Hero: React.FC = () => {
              bg-[url('https://whatsappwaitwhiz.s3.eu-north-1.amazonaws.com/amor-desktop.jpeg')] 
              md:bg-[url('https://whatsappwaitwhiz.s3.eu-north-1.amazonaws.com/amor-desktop.jpeg')] 
              bg-[url('https://whatsappwaitwhiz.s3.eu-north-1.amazonaws.com/amor-mobile.jpeg')]"
-
     >
-      <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+      <div className="absolute inset-0 bg-[#1A1815] bg-opacity-0"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-2xl">
-          
-         
-          
-          
-        </div>
+        {/* Empty content - no text */}
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#about" className="text-white">
+        <a href="#about" className="text-[#D26A3B]">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             className="h-8 w-8" 
