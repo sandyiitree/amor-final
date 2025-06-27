@@ -8,6 +8,7 @@ import Location from './components/Location';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import StickyInquiry from './components/StickyInquiry';
+import AboutDeveloper from './components/AboutDeveloper';
 import './styles/animations.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Amenities />
       <Location />
       <Contact />
+      <AboutDeveloper />
       <Footer />
       <StickyInquiry />
     </div>

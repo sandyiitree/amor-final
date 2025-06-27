@@ -1,4 +1,5 @@
 import React from 'react';
+import developerLogo from '../assets/Developer logo.png';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -50,8 +51,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-
-          
           <div>
             <h3 className="text-lg font-semibold mb-6">Legal</h3>
             <ul className="space-y-3">
@@ -76,14 +75,18 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-[#3A3835] mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/60 text-sm mb-4 md:mb-0">
-              © {currentYear} AMOR Realty. All rights reserved.
-            </p>
-            <div>
-              <p className="text-white/60 text-sm">
-                RERA Reg. No: XXXXXXXXXX | BU Permission No: XXXXXXXXXX
-              </p>
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
+            <div className="flex flex-col items-center md:items-start w-full md:w-auto">
+              <img src={developerLogo} alt="CCS Infratech Logo" className="h-12 md:h-16 w-auto object-contain rounded bg-white/5 p-2 mb-2 md:mb-0" />
+              <p className="text-white/60 text-sm mt-2 md:mt-4">© {currentYear} CCS Infratech. All rights reserved.</p>
+            </div>
+            <div className="flex flex-col items-center md:items-end w-full md:w-auto">
+              <span className="font-bold text-base md:text-lg text-white">UP RERA REGISTRATION NO.</span>
+              <span className="font-bold text-base md:text-lg text-white">UPRERAPRJ389222/03/2025</span>
+              <span className="font-bold text-base md:text-lg text-white">Launch Date: 29 March</span>
+              <span className="text-white/60 text-xs md:text-sm mt-2">Website: <a href="https://www.up-rera.in" className="underline hover:text-[#D26A3B]">www.up-rera.in</a></span>
+              <span className="text-white/60 text-xs md:text-sm">A/c Name: CCS Infratech Collection Account for AMOR | A/c No. 0294002900000154</span>
+              <span className="text-white/60 text-xs md:text-sm">Bank & Branch: Punjab National Bank, Hazratganj | IFSC: PUNB0029400</span>
             </div>
           </div>
         </div>
