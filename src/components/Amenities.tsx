@@ -267,14 +267,7 @@ const Amenities: React.FC = () => {
         </div>
 
         {/* Call to action */}
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-2 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer" style={{background: 'linear-gradient(313deg, #8c5438 0%, #c76a43 50%, #f3b79e 100%)'}}>
-            <span className="font-semibold">Explore All Amenities</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </div>
-        </div>
+
       </div>
 
       <style>{`
