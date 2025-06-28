@@ -74,10 +74,10 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-[#3A3835] mt-12 pt-8">
+        <div className="border-t border-[#3A3835] mt-12 pt-8" style={{paddingBottom: '30px'}}>
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
             <div className="flex flex-col items-center md:items-start w-full md:w-auto">
-              <img src={developerLogo} alt="CCS Infratech Logo" className="h-12 md:h-16 w-auto object-contain rounded bg-white/5 p-2 mb-2 md:mb-0" />
+              <img src={developerLogo} alt="CCS Infratech Logo" style={{width: 'auto', height: '3rem'}} />
               <p className="text-white/60 text-sm mt-2 md:mt-4">© {currentYear} CCS Infratech. All rights reserved.</p>
             </div>
             <div className="flex flex-col items-center md:items-end w-full md:w-auto">
