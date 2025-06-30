@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { validatePhoneNumber } from '../utils/phoneUtils';
+import { submitLeadToAnarock } from '../utils/anarockApi';
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -16,6 +18,8 @@ const Contact: React.FC = () => {
   
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string>('');
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -46,7 +50,7 @@ const Contact: React.FC = () => {
     
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ''))) {
+    } else if (!validatePhoneNumber(formData.phone)) {
       newErrors.phone = 'Please enter a valid 10-digit phone number';
     }
     
@@ -54,19 +58,34 @@ const Contact: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (validateForm()) {
-      console.log('Form submitted:', formData);
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        interested: 'sales'
-      });
+      setIsSubmitting(true);
+      setSubmitError('');
+      
+      try {
+        const result = await submitLeadToAnarock(formData);
+        
+        if (result.success) {
+          setIsSubmitted(true);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            interested: 'sales'
+          });
+        } else {
+          setSubmitError(result.message || 'Failed to submit inquiry. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setSubmitError('Network error. Please check your connection and try again.');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
   
@@ -214,12 +233,32 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   
+                  {submitError && (
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-md p-3">
+                      <p className="text-red-400 text-sm">{submitError}</p>
+                    </div>
+                  )}
+                  
                   <button
                     type="submit"
-                    className="w-full bg-[#D26A3B] hover:bg-[#B85A2B] text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
+                    disabled={isSubmitting}
+                    className={`w-full font-semibold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center ${
+                      isSubmitting 
+                        ? 'bg-gray-600 cursor-not-allowed' 
+                        : 'bg-[#D26A3B] hover:bg-[#B85A2B]'
+                    } text-white`}
                   >
-                    <Send className="h-5 w-5 mr-2" />
-                    Send Inquiry
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        Send Inquiry
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
