@@ -40,6 +40,8 @@ export async function submitLeadToAnarock(leadData: LeadData): Promise<AnarockRe
     const formData = new URLSearchParams({
       name: leadData.name,
       email: leadData.email,
+      source: 'google',
+      sub_source: 'google_search',
       purpose: 'buy',
       current_time: current_time.toString(),
       phone: phoneData.phone,
