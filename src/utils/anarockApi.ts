@@ -2,9 +2,9 @@ import CryptoJS from 'crypto-js';
 import { parsePhoneNumber } from './phoneUtils';
 
 // Anarock API Configuration
-const ANAROCK_API_URL = 'https://lead-webhook.anarock.com/api/v0/Google/sync-lead';
-const ANAROCK_KEY = 'abcd'; // This should be in environment variables
-const CAMPAIGN_ID = 'AMOR_VILLAS_CAMPAIGN';
+const ANAROCK_API_URL = 'https://lead.anarock.com/api/v0/LandingPage/sync-lead';
+const ANAROCK_KEY = '97548e3de8f0d07c'; // This should be in environment variables
+const CAMPAIGN_ID = 'amor_landing_page';
 
 export interface LeadData {
   name: string;
@@ -40,13 +40,10 @@ export async function submitLeadToAnarock(leadData: LeadData): Promise<AnarockRe
     const formData = new URLSearchParams({
       name: leadData.name,
       email: leadData.email,
-      source: 'website',
-      sub_source: 'contact_form',
-      placement: leadData.interested || 'sales',
       purpose: 'buy',
       current_time: current_time.toString(),
       phone: phoneData.phone,
-      country_code: phoneData.country_code,
+      country_code: 'in',
       hash: hash,
       campaign_id: CAMPAIGN_ID
     });
