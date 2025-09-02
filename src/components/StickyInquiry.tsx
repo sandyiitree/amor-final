@@ -17,11 +17,7 @@ const StickyInquiry: React.FC = () => {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
+    
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
     } else if (!validatePhoneNumber(formData.phone)) {
@@ -92,14 +88,7 @@ const StickyInquiry: React.FC = () => {
                 className={`flex-1 px-4 py-2 border ${errors.phone ? 'border-red-500' : 'border-[#3A3835]'} bg-[#2A2825] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] placeholder-white/60`}
                 required
               />
-              <input
-                type="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className={`flex-1 px-4 py-2 border ${errors.email ? 'border-red-500' : 'border-[#3A3835]'} bg-[#2A2825] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#D26A3B] placeholder-white/60`}
-                required
-              />
+              
               <button
                 type="submit"
                 disabled={isSubmitting}
